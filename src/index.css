@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #080808;
+  --color-ink-2: #141414;
+  --color-paper: #f5f5f3;
+  --color-paper-2: #eae9e5;
+  --font-fa: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+  --font-eng: "Space Grotesk", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01" on;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  font-family: var(--font-fa);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+::-moz-selection {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% center;
+  }
+}
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-paper) 0%,
+    var(--color-paper) 46%,
+    rgba(245, 245, 243, 0.4) 50%,
+    var(--color-paper) 54%,
+    var(--color-paper) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 3.2s linear infinite;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3a3a #0a0a0a;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 99px;
+}
+
+@media (pointer: fine) {
+  body,
+  a,
+  button,
+  [data-hover] {
+    cursor: none !important;
+  }
+}
+
+/* ---------- typography helpers ---------- */
+.font-eng {
+  font-family: var(--font-eng);
+}
+
+.text-outline-paper {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(245, 245, 243, 0.85);
+}
+.text-outline-paper-soft {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(245, 245, 243, 0.22);
+}
+.text-outline-ink {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(8, 8, 8, 0.85);
+}
+.text-outline-ink-soft {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(8, 8, 8, 0.25);
+}
+
+.vert {
+  writing-mode: vertical-rl;
+}
+
+/* ---------- imagery ---------- */
+.img-bw {
+  filter: grayscale(1) contrast(1.18) brightness(0.96);
+}
+.img-bw::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.1);
+  mix-blend-mode: multiply;
+}
+
+/* ---------- motion ---------- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee var(--speed, 28s) linear infinite;
+}
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+@keyframes rotate-360 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: rotate-360 var(--speed, 20s) linear infinite;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(-10%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+}
+.animate-bob {
+  animation: bob 1.6s ease-in-out infinite;
+}
+
+@keyframes ping-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+.animate-ping-ring {
+  animation: ping-ring 1.8s cubic-bezier(0.2, 0.7, 0.4, 1) infinite;
+}
+
+/* ---------- grain overlay ---------- */
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+/* dotted leader for menu rows */
+.dot-leader {
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1.3px);
+  background-size: 9px 2px;
+  background-repeat: repeat-x;
+  background-position: 0 center;
+  opacity: 0.35;
+}
