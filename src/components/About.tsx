@@ -1,167 +1,116 @@
-import { useLayoutEffect, useRef } from "react";
-import { Leaf, Music, Store, Sun } from "lucide-react";
-import { gsap } from "../lib/site";
-import { useReveal } from "../hooks/useReveal";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { Coffee, Croissant, SunMoon } from "lucide-react";
+import { Eyebrow, Reveal } from "./ui";
+import { toFa } from "../lib/data";
 
-/** Scroll-scrubbed word-by-word reveal. *word* renders as an inverted chip. */
-function ScrubText({ text, className = "" }: { text: string; className?: string }) {
-  const ref = useRef<HTMLParagraphElement>(null);
-
-  useLayoutEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        el.querySelectorAll(".sw"),
-        { opacity: 0.13 },
-        {
-          opacity: 1,
-          ease: "none",
-          stagger: 0.06,
-          scrollTrigger: { trigger: el, start: "top 82%", end: "top 28%", scrub: 0.6 },
-        }
-      );
-    }, el);
-    return () => ctx.revert();
-  }, []);
-
-  const parts = text.split("*");
-  return (
-    <p ref={ref} className={className}>
-      {parts.map((part, i) => {
-        const hi = i % 2 === 1;
-        return part.split(" ").map((w, j) =>
-          w === "" ? null : hi ? (
-            <span
-              key={`${i}-${j}`}
-              className="sw mx-1 inline-block rounded-lg bg-ink px-3 py-0.5 text-paper"
-            >
-              {w}
-            </span>
-          ) : (
-            <span key={`${i}-${j}`} className="sw me-[0.24em] inline-block">
-              {w}
-            </span>
-          )
-        );
-      })}
-    </p>
-  );
-}
-
-const STATS = [
-  ["۱۴۰۵", "شروعِ داستان"],
-  ["+۱۲ هزار", "فنجان سرو‌شده"],
-  ["۷ روز", "هفته همیشه باز"],
-  ["۲", "میزِ دنج و همیشه لبریز"],
-];
-
-const VALUES = [
-  { icon: Leaf, title: "رستِ همین‌جا", sub: "دانه‌های تازه، هر دوشنبه مغازه" },
-  { icon: Store, title: "کافهٔ کوچیک", sub: "مغازه‌ی نبش، دوتا میزِ دنج" },
-  { icon: Sun, title: "از صبحِ شنبه", sub: "بازشدنِ در — نورِ پنجره" },
-  { icon: Music, title: "بو وأهنگ", sub: "هر چی بشنوشه از دستِ ماست" },
+const stats = [
+  { icon: Coffee, num: "۱۵+", label: "آیتم قهوه و نوشیدنی" },
+  { icon: Croissant, num: "۲", label: "اسنک داغ امضادار" },
+  { icon: SunMoon, num: toFa(16), label: "ساعت باز بودن در روز" },
 ];
 
 export default function About() {
-  const ref = useReveal<HTMLElement>();
-  const imgWrapRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    const wrap = imgWrapRef.current;
-    if (!wrap) return;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        wrap.querySelector("img"),
-        { scale: 1.18, yPercent: -8 },
-        {
-          scale: 1,
-          yPercent: 8,
-          ease: "none",
-          scrollTrigger: { trigger: wrap, start: "top bottom", end: "bottom top", scrub: 0.8 },
-        }
-      );
-    }, wrap);
-    return () => ctx.revert();
-  }, []);
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const yImg = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const yWord = useTransform(scrollYProgress, [0, 1], [80, -120]);
 
   return (
-    <section id="about" ref={ref} className="relative bg-paper text-ink">
-      <div className="mx-auto max-w-[1600px] px-5 py-24 sm:px-10 sm:py-36">
-        <div data-reveal className="mb-12 flex items-center gap-4">
-          <span className="rounded-full border border-ink/30 px-4 py-1.5 text-xs tracking-[0.25em]">
-            ( داستانِ محل )
-          </span>
-          <span className="h-px flex-1 bg-ink/20" />
-        </div>
+    <section id="space" ref={ref} className="relative overflow-hidden py-24 md:py-36">
+      {/* giant ghost word */}
+      <motion.span
+        aria-hidden
+        style={{ y: yWord }}
+        className="text-outline pointer-events-none absolute -right-6 top-1/2 select-none font-display text-[38vw] leading-none md:text-[26vw]"
+      >
+        محل
+      </motion.span>
 
-        <ScrubText
-          className="max-w-5xl text-[clamp(1.7rem,4.2vw,3.6rem)] font-extrabold leading-[1.85]"
-          text="محل فقط یه فنجون قهوه نیست؛ *یه عادتِ روزانه‌ست*، یه قرارِ همیشگی، یه گوشه برای *خودت بودن*"
-        />
-
-        <div className="mt-16 grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <p data-reveal className="text-base leading-[2.2] text-ink/70 sm:text-lg">
-              تابستانِ ۱۴۰۵، یه مغازه‌ی کوچیک نبشِ سالخورده تو ساری، با فقط دو تا میز و یه
-              سؤالِ ساده شروع کردیم: «کافه‌ای که خودمون دلمون می‌خواد توش قهوه بخوریم،
-              چه شکلیه؟»
+      <div className="relative mx-auto grid max-w-[90rem] grid-cols-1 items-center gap-16 px-5 md:px-10 lg:grid-cols-2">
+        {/* text */}
+        <div>
+          <Eyebrow>The Space — فضای محل</Eyebrow>
+          <Reveal delay={0.05}>
+            <h2 className="mt-5 font-display text-5xl leading-[1.1] text-cream md:text-7xl">
+              جایی برای <span className="text-caramel">مکث</span>،
+              <br />
+              نه برای عجله
+            </h2>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="mt-7 max-w-lg text-base leading-8 text-sand md:text-lg md:leading-9">
+              «محل» از یک ایدهٔ ساده شروع شد: شهری که همه‌ش در حال دویدن است،
+              به یک نقطه نیاز دارد که در آن بایستی. ما دانه را خودمان تراز
+              می‌کنیم، شات‌ها را عجولانه نمی‌زنیم و باور داریم بهترین گفتگوها
+              دور یک فنجان قهوهٔ خوب شکل می‌گیرد.
             </p>
-            <p data-reveal data-delay="0.1" className="mt-6 text-base leading-[2.2] text-ink/70 sm:text-lg">
-              جوابش شد محل: یه بارِ قهوه‌سازی، دوتا میزِ دنج و فنجون‌هایی که با اسمِ تو
-              آماده می‌شن. حالا کلِ نبشِ سالخورده بوی قهوه گرفته و همون دوتا میز، پر از
-              قصه‌های صبح‌به‌صبحِ محلّه‌ست.
+          </Reveal>
+          <Reveal delay={0.18}>
+            <p className="mt-4 max-w-lg text-base leading-8 text-clay md:text-lg md:leading-9">
+              نور کم، موسیقی آرام، بوی تازه‌بویل و یک گوشهٔ دنج که شبیه
+              خونه‌اته؛ همین‌قدر ساده.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[28px] bg-ink/15 shadow-[0_18px_44px_-24px_rgba(8,8,8,0.14)] lg:col-span-7 lg:ms-auto lg:w-full">
-            {STATS.map(([n, label], i) => (
-              <div
-                key={label}
-                data-reveal
-                data-delay={String(i * 0.07)}
-                className="flex flex-col justify-between gap-6 bg-paper p-6 sm:p-8"
-              >
-                <span className="text-4xl font-black tracking-tight sm:text-6xl">{n}</span>
-                <span className="text-xs text-ink/60 sm:text-sm">{label}</span>
-              </div>
+          {/* stats */}
+          <div className="mt-12 grid grid-cols-3 gap-4">
+            {stats.map(({ icon: Icon, num, label }, i) => (
+              <Reveal key={label} delay={0.1 + i * 0.08}>
+                <div className="group rounded-2xl border border-cream/10 bg-coal/60 p-4 transition-colors duration-500 hover:border-caramel/40 md:p-6">
+                  <Icon className="size-5 text-caramel transition-transform duration-500 group-hover:-translate-y-1" />
+                  <p className="mt-4 font-display text-4xl leading-none text-cream md:text-5xl">
+                    {num}
+                  </p>
+                  <p className="mt-2 text-[11px] leading-5 text-clay md:text-xs">
+                    {label}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
-      </div>
 
-      {/* full-bleed image */}
-      <div data-reveal className="mx-auto max-w-[1600px] px-0 sm:px-10">
-        <div ref={imgWrapRef} className="relative h-[62vh] overflow-hidden sm:rounded-[32px] sm:shadow-[0_24px_60px_-24px_rgba(8,8,8,0.18)]">
-          <img
-            src="/images/counter.jpg"
-            alt="پشت باری کافه محل"
-            className="img-bw h-full w-full object-cover"
-          />
-          <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-ink/70 to-transparent p-5 text-paper sm:p-8">
-            <span className="text-sm font-bold sm:text-base">پشتِ بارِ محل — ۸ صبحِ یه شنبه</span>
-            <span className="font-eng hidden text-xs tracking-widest opacity-70 sm:block" dir="ltr">
-              SHOT ON B&W FILM
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* values */}
-      <div className="mx-auto max-w-[1600px] px-5 py-20 sm:px-10 sm:py-28">
-        <div className="grid gap-px overflow-hidden rounded-[28px] bg-ink/15 sm:grid-cols-2 lg:grid-cols-4">
-          {VALUES.map((v, i) => (
-            <div
-              key={v.title}
-              data-reveal
-              data-delay={String(i * 0.08)}
-              className="group bg-paper p-8 transition-colors duration-300 hover:bg-ink hover:text-paper"
-            >
-              <v.icon size={30} strokeWidth={1.5} className="mb-8 transition-transform duration-500 group-hover:-rotate-12" />
-              <h3 className="text-xl font-extrabold">{v.title}</h3>
-              <p className="mt-2 text-sm leading-7 opacity-60">{v.sub}</p>
+        {/* image stack */}
+        <div className="relative">
+          <motion.div
+            style={{ y: yImg }}
+            className="relative ml-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2.5rem] border border-cream/15"
+          >
+            <img
+              src="/images/interior.jpg"
+              alt="فضای داخلی کافه محل"
+              className="img-warm h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-espresso/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 right-6 left-6 flex items-end justify-between">
+              <p className="font-display text-2xl text-cream">گوشهٔ همیشگی</p>
+              <p className="font-latin text-[10px] uppercase tracking-[0.3em] text-cream/70">
+                Since Day One
+              </p>
             </div>
-          ))}
+          </motion.div>
+
+          {/* floating card */}
+          <motion.div
+            initial={{ opacity: 0, y: 40, rotate: 4 }}
+            whileInView={{ opacity: 1, y: 0, rotate: -6 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute -bottom-10 -right-2 w-40 animate-float bg-cream p-2 pb-8 shadow-2xl shadow-black/50 sm:-right-8 md:w-48"
+          >
+            <img
+              src="/images/latte.jpg"
+              alt="لاته آرت"
+              className="img-warm aspect-square w-full object-cover"
+            />
+            <p className="mt-2 text-center font-latin text-[9px] uppercase tracking-[0.25em] text-espresso/70">
+              Every cup, a canvas
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>
