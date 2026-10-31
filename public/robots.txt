@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# کافه محل | Cafe Mahal
+Sitemap: https://cafemahal.ir/sitemap.xml

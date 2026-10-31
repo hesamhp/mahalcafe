@@ -1,0 +1,21 @@
+{
+  "name": "کافه محل — Cafe Mahal",
+  "short_name": "کافه محل",
+  "description": "کافهٔ تخصصی در ساری، سالخورده؛ منوی آنلاین قهوه، اسنک و نوشیدنی و فروش کیلویی روبوستای ۱۰۰٪.",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#150e08",
+  "theme_color": "#150e08",
+  "categories": ["food", "cafe"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

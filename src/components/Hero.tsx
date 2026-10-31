@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowDown, Armchair, Coffee, Wifi } from "lucide-react";
+import { ArrowDown, Armchair, Coffee } from "lucide-react";
 import { scrollToId } from "../lib/scroll";
 
 const rise = {
@@ -67,7 +67,7 @@ export default function Hero({ ready }: { ready: boolean }) {
           >
             <span className="flex items-center gap-2 rounded-full border border-caramel/30 bg-caramel/10 px-4 py-1.5 text-xs font-semibold text-caramel">
               <Coffee className="size-3.5" />
-              کافهٔ تخصصی — هر روز ۸ صبح تا ۱۲ شب
+              کافهٔ تخصصی — هر روز ۱۰ صبح تا ۱۲ شب
             </span>
           </motion.div>
 
@@ -79,6 +79,7 @@ export default function Hero({ ready }: { ready: boolean }) {
               animate={state}
               className="font-display text-[34vw] leading-[0.85] text-cream sm:text-[26vw] lg:text-[15rem] xl:text-[17rem]"
             >
+              <span className="sr-only">کافه</span>
               محل
               <span className="text-caramel">.</span>
             </motion.h1>
@@ -91,9 +92,9 @@ export default function Hero({ ready }: { ready: boolean }) {
             animate={state}
             className="mt-6 max-w-md text-base leading-8 text-sand md:text-lg md:leading-9"
           >
-            اینجا قرار نیست عجله‌ای رد شوی. «محل» جایی است برای مکث؛ قهوه‌ات
-            داغ، اسنک‌ات تازه و صندلی‌ات همیشه آماده. منو را نگاه کن، ما
-            بقیه‌اش با ما.
+            اینجا قرار نیست عجله‌ای رد شوی. کافه محل (Cafe Mahal) جایی است
+            برای مکث در قلب سالخوردهٔ ساری؛ قهوه‌ات داغ، اسنک‌ات تازه و
+            صندلی‌ات همیشه آماده. منو را نگاه کن، بقیه‌اش با ما.
           </motion.p>
 
           <motion.div
@@ -126,9 +127,8 @@ export default function Hero({ ready }: { ready: boolean }) {
             className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs font-medium text-clay"
           >
             {[
-              { icon: Coffee, label: "دانهٔ تازه‌بویل" },
+              { icon: Coffee, label: "دانهٔ تازه‌رست" },
               { icon: Armchair, label: "فضای دنج برای نشستن" },
-              { icon: Wifi, label: "وای‌فای آزاد" },
             ].map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center gap-2">
                 <Icon className="size-4 text-caramel/80" />
@@ -178,7 +178,7 @@ export default function Hero({ ready }: { ready: boolean }) {
           >
             <img
               src="/images/iced.jpg"
-              alt="آیس ماکیاتو"
+              alt="آیس ماکیاتو — کافه محل ساری"
               className="img-warm aspect-square w-full object-cover"
             />
             <p className="mt-2 text-center font-latin text-[9px] uppercase tracking-[0.25em] text-espresso/70">

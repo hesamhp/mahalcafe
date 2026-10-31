@@ -3,9 +3,123 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="کافه محل — قهوهٔ تخصصی، اسنک و نوشیدنی. منوی آنلاین کافه محل." />
+
+    <!-- Primary SEO -->
+    <title>کافه محل | Cafe Mahal — قهوه تخصصی و منوی آنلاین در ساری</title>
+    <meta
+      name="description"
+      content="کافه محل (Cafe Mahal) در ساری، سالخورده — قهوه تخصصی، اسنک داغ و نوشیدنی‌های تازه + فروش کیلویی دانهٔ روبوستای ۱۰۰٪. هر روز از ۱۰ صبح تا ۱۲ شب. سفارش تلفنی: ۰۹۹۰ ۸۹۳ ۸۲۰۷"
+    />
+    <meta
+      name="keywords"
+      content="کافه محل, cafe mahal, mahal cafe, محل کافه, کافه ساری, کافه سالخورده, قهوه کیلویی ساری, روبوستا, قهوه تخصصی, منوی آنلاین کافه, فروش دانه قهوه"
+    />
+    <meta name="author" content="کافه محل — Cafe Mahal" />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#150e08" />
-    <title>کافه محل | منوی آنلاین</title>
+    <meta name="application-name" content="کافه محل" />
+    <meta name="apple-mobile-web-app-title" content="کافه محل" />
+
+    <!-- Local SEO -->
+    <meta name="geo.region" content="IR-02" />
+    <meta name="geo.placename" content="Sari, Mazandaran, Iran" />
+
+    <!-- Canonical & language alternates (دامنهٔ واقعی را هنگام انتشار جایگزین کنید) -->
+    <link rel="canonical" href="https://cafemahal.ir/" />
+    <link rel="alternate" hreflang="fa-IR" href="https://cafemahal.ir/" />
+    <link rel="alternate" hreflang="en" href="https://cafemahal.ir/" />
+    <link rel="alternate" hreflang="x-default" href="https://cafemahal.ir/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cafemahal.ir/" />
+    <meta property="og:site_name" content="کافه محل — Cafe Mahal" />
+    <meta
+      property="og:title"
+      content="کافه محل | Cafe Mahal — قهوه تخصصی در ساری"
+    />
+    <meta
+      property="og:description"
+      content="کافه محل در ساری، سالخورده؛ جایی برای مکث با قهوهٔ تخصصی، اسنک داغ و فروش کیلویی روبوستای ۱۰۰٪. هر روز ۱۰ صبح تا ۱۲ شب."
+    />
+    <meta property="og:image" content="/images/hero.jpg" />
+    <meta property="og:image:alt" content="قهوهٔ تازهٔ کافه محل (Cafe Mahal) در ساری" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="کافه محل | Cafe Mahal — قهوه تخصصی در ساری" />
+    <meta
+      name="twitter:description"
+      content="کافه محل در ساری، سالخورده؛ قهوه تخصصی، اسنک داغ، نوشیدنی تازه و فروش کیلویی روبوستا."
+    />
+    <meta name="twitter:image" content="/images/hero.jpg" />
+
+    <!-- Favicon (حرف م برند محل) + PWA manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Structured data: کافه محل برای نتایج محلی گوگل -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CafeOrCoffeeShop",
+            "@id": "https://cafemahal.ir/#cafe",
+            "name": "کافه محل",
+            "alternateName": ["Cafe Mahal", "Mahal Cafe", "کافه محل ساری", "محل"],
+            "description": "کافهٔ تخصصی در ساری، سالخورده؛ منوی آنلاین قهوه، اسنک و نوشیدنی و فروش کیلویی دانهٔ قهوهٔ روبوستای ۱۰۰٪.",
+            "servesCuisine": ["Coffee", "Espresso", "Snacks", "Fresh Juice", "Tea"],
+            "priceRange": "IRR 35000-160000",
+            "telephone": "+989908938207",
+            "url": "https://cafemahal.ir/",
+            "image": "/images/hero.jpg",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "سالخورده، روبه‌روی سالخورده ۵",
+              "addressLocality": "ساری",
+              "addressRegion": "مازندران",
+              "addressCountry": "IR"
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "10:00",
+              "closes": "00:00"
+            },
+            "hasMenu": {
+              "@type": "Menu",
+              "name": "منوی آنلاین کافه محل",
+              "hasMenuSection": [
+                { "@type": "MenuSection", "name": "قهوه — Coffee" },
+                { "@type": "MenuSection", "name": "اسنک — Snacks" },
+                { "@type": "MenuSection", "name": "نوشیدنی — Drinks" }
+              ]
+            },
+            "sameAs": ["https://instagram.com/hesvmhsp"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://cafemahal.ir/#website",
+            "url": "https://cafemahal.ir/",
+            "name": "کافه محل — Cafe Mahal",
+            "alternateName": ["Cafe Mahal", "Mahal"],
+            "inLanguage": "fa-IR"
+          }
+        ]
+      }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

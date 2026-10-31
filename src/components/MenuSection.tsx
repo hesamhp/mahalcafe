@@ -258,6 +258,7 @@ export default function MenuSection() {
             <Reveal delay={0.05}>
               <h2 className="mt-5 font-display text-5xl leading-none text-cream md:text-8xl">
                 چی میل داری<span className="text-caramel">؟</span>
+                <span className="sr-only"> — منوی آنلاین کافه محل ساری</span>
               </h2>
             </Reveal>
           </div>
@@ -303,7 +304,7 @@ export default function MenuSection() {
               >
                 <motion.img
                   src={active.image}
-                  alt={active.label}
+                  alt={`منوی ${active.label} — کافه محل (Cafe Mahal)`}
                   initial={{ scale: 1.14 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}

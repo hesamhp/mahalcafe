@@ -2,6 +2,26 @@
 export const toFa = (n: number | string): string =>
   String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]);
 
+/** Persian-number money with thousands separators (٬) */
+export const faMoney = (n: number): string =>
+  toFa(n).replace(/\B(?=(\d{3})+(?!\d))/g, "٬");
+
+/** Readable Persian money in words: 8,699,000 -> «۸ میلیون و ۶۹۹ هزار» */
+export const faToman = (n: number): string => {
+  const m = Math.floor(n / 1_000_000);
+  const t = Math.floor((n % 1_000_000) / 1000);
+  const parts: string[] = [];
+  if (m) parts.push(`${toFa(m)} میلیون`);
+  if (t) parts.push(`${toFa(t)} هزار`);
+  return parts.join(" و ") || "۰";
+};
+
+export const cafeInfo = {
+  tel: "09908938207",
+  phoneFa: "۰۹۹۰ ۸۹۳ ۸۲۰۷",
+  address: ["مازندران، ساری — سالخورده", "روبه‌روی سالخورده ۵، کافه محل"],
+};
+
 export type MenuItem = {
   name: string;
   en: string;
@@ -111,70 +131,17 @@ export const categories: Category[] = [
   },
 ];
 
-export const totalItems = categories.reduce(
-  (acc, c) => acc + c.groups.reduce((a, g) => a + g.items.length, 0),
-  0
-);
+/* ---------------- Coffee by the kilo (100% Robusta) ---------------- */
 
-/* ---------------- Coffee beans by the kilo ---------------- */
-
-export type Bean = {
-  id: string;
-  name: string;
-  en: string;
-  note: string;
-  perKg: number;
-  roast: number; // 1..5
+export type BulkPack = {
+  kg: number;
+  price: number; // تومان
+  tag?: string;
 };
 
-export const beans: Bean[] = [
-  {
-    id: "mahal-blend",
-    name: "ترکیب اسپرسوی محل",
-    en: "House Blend",
-    note: "شکلاتی، کاراملی؛ همان طعمی که اینجا می‌نوشی",
-    perKg: 680,
-    roast: 4,
-  },
-  {
-    id: "yirgacheffe",
-    name: "عربیکا یرگاچف",
-    en: "Ethiopia Yirgacheffe",
-    note: "گل‌دار، مرکبات، اسیدیتهٔ روشن؛ مخصوص دمی",
-    perKg: 840,
-    roast: 2,
-  },
-  {
-    id: "robusta",
-    name: "روبوستای ویتنام",
-    en: "Vietnam Robusta",
-    note: "کافئین بالا، کرمای ضخیم؛ جفتِ خوب شیر",
-    perKg: 560,
-    roast: 5,
-  },
-  {
-    id: "french",
-    name: "ترکیب فرانسه",
-    en: "French Dark Roast",
-    note: "رست تیره، دودیِ ملایم و تلخیِ آکنده",
-    perKg: 720,
-    roast: 5,
-  },
-];
-
-export type Weight = { id: string; label: string; factor: number };
-
-export const weights: Weight[] = [
-  { id: "250", label: "۲۵۰ گرم", factor: 0.25 },
-  { id: "500", label: "۵۰۰ گرم", factor: 0.5 },
-  { id: "1000", label: "۱ کیلو", factor: 1 },
-];
-
-export type Grind = { id: string; label: string; icon: string };
-
-export const grinds: Grind[] = [
-  { id: "whole", label: "دانهٔ کامل", icon: "bean" },
-  { id: "espresso", label: "آسیاب اسپرسو", icon: "zap" },
-  { id: "filter", label: "قهوه‌جوش و دمی", icon: "coffee" },
-  { id: "cold", label: "کلدبرو", icon: "snow" },
+export const bulkPacks: BulkPack[] = [
+  { kg: 1, price: 3000000 },
+  { kg: 3, price: 8699000 },
+  { kg: 5, price: 14699000 },
+  { kg: 10, price: 28999000, tag: "اقتصادی‌ترین" },
 ];

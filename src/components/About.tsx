@@ -6,8 +6,8 @@ import { toFa } from "../lib/data";
 
 const stats = [
   { icon: Coffee, num: "۱۵+", label: "آیتم قهوه و نوشیدنی" },
-  { icon: Croissant, num: "۲", label: "اسنک داغ امضادار" },
-  { icon: SunMoon, num: toFa(16), label: "ساعت باز بودن در روز" },
+  { icon: Croissant, num: "۲", label: "اسنک داغ" },
+  { icon: SunMoon, num: toFa(14), label: "ساعت باز بودن در روز" },
 ];
 
 export default function About() {
@@ -43,15 +43,15 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-7 max-w-lg text-base leading-8 text-sand md:text-lg md:leading-9">
-              «محل» از یک ایدهٔ ساده شروع شد: شهری که همه‌ش در حال دویدن است،
-              به یک نقطه نیاز دارد که در آن بایستی. ما دانه را خودمان تراز
+              کافه محل از یک ایدهٔ ساده شروع شد: شهری مثل ساری که همه‌ش در
+              حال دویدن است، به یک نقطه نیاز دارد که در آن بایستی. ما دانه را خودمان تراز
               می‌کنیم، شات‌ها را عجولانه نمی‌زنیم و باور داریم بهترین گفتگوها
               دور یک فنجان قهوهٔ خوب شکل می‌گیرد.
             </p>
           </Reveal>
           <Reveal delay={0.18}>
             <p className="mt-4 max-w-lg text-base leading-8 text-clay md:text-lg md:leading-9">
-              نور کم، موسیقی آرام، بوی تازه‌بویل و یک گوشهٔ دنج که شبیه
+              نور کم، موسیقی آرام، بوی قهوهٔ تازه و یک گوشهٔ دنج که شبیه
               خونه‌اته؛ همین‌قدر ساده.
             </p>
           </Reveal>
@@ -104,7 +104,7 @@ export default function About() {
           >
             <img
               src="/images/latte.jpg"
-              alt="لاته آرت"
+              alt="لاته آرت — کافه محل (Cafe Mahal)"
               className="img-warm aspect-square w-full object-cover"
             />
             <p className="mt-2 text-center font-latin text-[9px] uppercase tracking-[0.25em] text-espresso/70">

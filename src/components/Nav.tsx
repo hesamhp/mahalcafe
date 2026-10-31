@@ -5,7 +5,7 @@ import { scrollToId } from "../lib/scroll";
 
 const links = [
   { id: "menu", label: "منوی آنلاین" },
-  { id: "beans", label: "دانهٔ کیلویی" },
+  { id: "beans", label: "قهوهٔ کیلویی" },
   { id: "space", label: "فضای محل" },
   { id: "contact", label: "تماس" },
 ];
@@ -42,7 +42,7 @@ export default function Nav({ ready }: { ready: boolean }) {
             محل
           </span>
           <span className="hidden font-latin text-[10px] uppercase tracking-[0.4em] text-clay sm:block">
-            Mahal Cafe
+            Cafe Mahal
           </span>
         </button>
 

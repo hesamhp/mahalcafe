@@ -1,5 +1,6 @@
 import { Clock, MapPin, Phone } from "lucide-react";
 import { Eyebrow, Reveal } from "./ui";
+import { cafeInfo } from "../lib/data";
 
 function InstagramIcon({ className = "" }: { className?: string }) {
   return (
@@ -23,17 +24,17 @@ const cells = [
   {
     icon: Clock,
     title: "ساعت‌های محل",
-    lines: ["شنبه تا پنجشنبه: ۸ صبح تا ۱۲ شب", "جمعه‌ها: ۹ صبح تا ۱۲ شب"],
+    lines: ["هر روز هفته", "۱۰ صبح تا ۱۲ شب"],
   },
   {
     icon: MapPin,
     title: "نشانی",
-    lines: ["تهران، خیابان ولیعصر", "نبش کوچهٔ محل، پلاک ۷"],
+    lines: cafeInfo.address,
   },
   {
     icon: Phone,
     title: "تماس و سفارش",
-    lines: ["۰۲۱ — ۲۸۴۲ ۷۶۵۴", "تحویل حضوری و بیرون‌بر"],
+    lines: [cafeInfo.phoneFa, "تحویل حضوری و سفارش تلفنی"],
   },
 ];
 
@@ -46,6 +47,7 @@ export default function Footer() {
         <Reveal delay={0.05}>
           <h2 className="mt-5 max-w-2xl font-display text-5xl leading-[1.1] text-cream md:text-7xl">
             یه سر به <span className="text-caramel">محل</span> بزن
+            <span className="sr-only"> — تماس و نشانی کافه محل در ساری</span>
           </h2>
         </Reveal>
 
@@ -109,8 +111,10 @@ export default function Footer() {
 
         {/* bottom bar */}
         <div className="mt-4 flex flex-col items-center justify-between gap-3 border-t border-cream/10 pt-6 text-[11px] text-clay md:flex-row">
-          <p>© ۱۴۰۴ کافه محل — همهٔ حقوق محفوظ است</p>
-          <p className="font-latin uppercase tracking-[0.3em]">Mahal Cafe</p>
+          <p>© ۱۴۰۵ کافه محل — همهٔ حقوق محفوظ است</p>
+          <p className="font-latin uppercase tracking-[0.3em]">
+            Cafe Mahal — Sari
+          </p>
           <p>
             طراحی و توسعه توسط{" "}
             <a

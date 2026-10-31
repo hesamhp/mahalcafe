@@ -40,14 +40,14 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
       </motion.p>
 
       <div className="overflow-hidden">
-        <motion.h1
+        <motion.span
           initial={{ y: "115%" }}
           animate={{ y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="font-display text-[26vw] leading-[0.95] text-cream md:text-[13rem]"
+          className="block font-display text-[26vw] leading-[0.95] text-cream md:text-[13rem]"
         >
           محل
-        </motion.h1>
+        </motion.span>
       </div>
 
       <motion.div

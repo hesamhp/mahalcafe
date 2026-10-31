@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://cafemahal.ir/</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://cafemahal.ir/images/hero.jpg</image:loc>
+      <image:title>کافه محل | Cafe Mahal — قهوه تخصصی در ساری</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://cafemahal.ir/images/interior.jpg</image:loc>
+      <image:title>فضای کافه محل ساری</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://cafemahal.ir/images/bag.jpg</image:loc>
+      <image:title>فروش کیلویی دانهٔ روبوستا — کافه محل</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://cafemahal.ir/images/latte.jpg</image:loc>
+      <image:title>منوی قهوهٔ کافه محل</image:title>
+    </image:image>
+  </url>
+
+  <!-- لنگرهای داخلی صفحه -->
+  <url>
+    <loc>https://cafemahal.ir/#menu</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cafemahal.ir/#beans</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cafemahal.ir/#contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
