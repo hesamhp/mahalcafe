@@ -73,7 +73,7 @@ export default function Footer() {
         {/* instagram strip */}
         <Reveal delay={0.15}>
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/mahal_coffeee"
             target="_blank"
             rel="noreferrer"
             className="group mt-4 flex items-center justify-between rounded-3xl border border-caramel/30 bg-gradient-to-l from-caramel/15 to-transparent p-7 transition-colors duration-500 hover:border-caramel"
@@ -90,7 +90,7 @@ export default function Footer() {
                   dir="ltr"
                   className="block text-right font-latin text-xs tracking-[0.2em] text-clay"
                 >
-                  @MAHAL.CAFE
+                  @MAHAL_COFFEEE
                 </span>
               </span>
             </span>
