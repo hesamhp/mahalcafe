@@ -48,7 +48,7 @@ export default function Beans() {
           <Eyebrow light>Beans By Kilo — فروش کیلویی</Eyebrow>
           <Reveal delay={0.05}>
             <h2 className="mt-5 font-display text-5xl leading-[1.05] text-espresso md:text-7xl">
-              روبستای <span className="text-ember">۱۰۰٪</span>
+              روبوستای <span className="text-ember">۱۰۰٪</span>
               <br />
               کیلویی ببر
               <span className="sr-only">
