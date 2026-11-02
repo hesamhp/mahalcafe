@@ -36,19 +36,18 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
         transition={{ duration: 1.6, times: [0, 0.4, 0.7, 1] }}
         className="absolute top-8 font-latin text-[10px] uppercase tracking-[0.5em] text-clay"
       >
-        Mahal — Specialty Coffee
+        Cafe Mahal — Specialty Coffee
       </motion.p>
 
-      <div className="overflow-hidden">
-        <motion.span
-          initial={{ y: "115%" }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="block font-display text-[26vw] leading-[0.95] text-cream md:text-[13rem]"
-        >
-          محل
-        </motion.span>
-      </div>
+      {/* logo */}
+      <motion.img
+        src="/images/logo.png"
+        alt="لوگوی کافه محل — Cafe Mahal"
+        initial={{ scale: 0.7, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+        className="size-40 rounded-full object-contain md:size-52"
+      />
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -57,7 +56,7 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
         className="mt-6 flex items-center gap-2 text-sand"
       >
         <span className="size-1.5 animate-pulse rounded-full bg-caramel" />
-        <span className="text-sm font-medium">دارمی قهوه رو آماده می‌کنیم</span>
+        <span className="text-sm font-medium">یه لحظه صبر کن، داریم قهوه‌تو آماده می‌کنیم...</span>
       </motion.div>
 
       <div className="absolute bottom-8 left-8 font-display text-6xl text-cream/90 md:bottom-10 md:left-12 md:text-8xl">

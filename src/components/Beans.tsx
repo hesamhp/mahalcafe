@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Check, Flame, MapPin, Phone, Scale, Truck } from "lucide-react";
+import { Check, Flame, MapPin, MessageCircle, Phone, Scale, Truck } from "lucide-react";
 import { Eyebrow, Reveal } from "./ui";
 import { bulkPacks, cafeInfo, faToman, toFa } from "../lib/data";
 
@@ -8,7 +8,7 @@ const perks = [
   {
     icon: Flame,
     title: "روبوستای ۱۰۰٪ تازه‌رست",
-    desc: "کرمای ضخیم، کافئین بالا",
+    desc: "دانه‌ها تازه از رستر کافه محل می‌رسن",
   },
   {
     icon: Scale,
@@ -18,7 +18,7 @@ const perks = [
   {
     icon: Truck,
     title: "تحویل آسان",
-    desc: "حضوری در ساری یا ارسال به شهرستان",
+    desc: "حضوری تو ساری یا ارسال به هر جای کشور",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function Beans() {
         BEANS
       </span>
 
-      <div className="relative mx-auto grid max-w-[90rem] grid-cols-1 items-start gap-14 px-5 md:px-10 lg:grid-cols-2 lg:gap-20">
+      <div className="relative mx-auto grid max-w-[90rem] grid-cols-1 items-start gap-10 px-5 md:gap-14 md:px-10 lg:grid-cols-2 lg:gap-20">
         {/* ---------- intro column ---------- */}
         <div>
           <Eyebrow light>Beans By Kilo — فروش کیلویی</Eyebrow>
@@ -59,9 +59,9 @@ export default function Beans() {
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-6 max-w-lg text-base leading-8 text-espresso/70 md:text-lg md:leading-9">
-              دانهٔ روبوستای خالص، تازه از رسترِ محل؛ برای کافه‌ات، آشپزخونه‌ات
-              یا هر جایی که عطر قهوهٔ واقعی لازمه. بسته‌بندی از ۱ تا ۱۰ کیلوگرم
-              — هرچی بیشتر، ارزون‌تر.
+              همون دونه‌ای که تو کافه محل باهاش قهوت که حاصل سال‌ها تلاش و
+              تجربه است رو می‌زنیم، می‌تونی کیلویی ببری خونه! وزنت رو انتخاب
+              کن و بقیه‌ش با ما. روی هر پاکت تاریخ رست رو هم می‌نویسیم.
             </p>
           </Reveal>
 
@@ -82,24 +82,24 @@ export default function Beans() {
             ))}
           </div>
 
-          {/* bag visual */}
-          <Reveal delay={0.2} className="mt-12">
+          {/* bag visual - hidden on mobile, shown on lg */}
+          <Reveal delay={0.2} className="mt-12 hidden lg:block">
             <div className="relative w-fit">
-              <div className="w-56 rotate-[-3deg] overflow-hidden rounded-[1.5rem] border-4 border-espresso shadow-2xl shadow-espresso/30 transition-transform duration-700 hover:rotate-0 sm:w-64 md:w-72">
+              <div className="w-64 rotate-[-3deg] overflow-hidden rounded-[1.5rem] border-4 border-espresso shadow-2xl shadow-espresso/30 transition-transform duration-700 hover:rotate-0 md:w-72">
                 <img
                   src="/images/bag.jpg"
                   alt="پاکت قهوهٔ کیلویی کافه محل (Cafe Mahal)"
                   className="img-warm aspect-[4/5] w-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-8 -left-10 size-28 animate-float overflow-hidden rounded-full border-4 border-cream shadow-xl sm:-left-14 sm:size-32">
+              <div className="absolute -bottom-8 -left-14 size-32 animate-float overflow-hidden rounded-full border-4 border-cream shadow-xl">
                 <img
                   src="/images/beans.jpg"
                   alt="دانهٔ روبوستای ۱۰۰٪ — فروش کیلویی قهوه در کافه محل"
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="absolute -top-5 -right-4 rounded-full bg-espresso px-5 py-2.5 text-xs font-bold text-cream shadow-lg sm:-right-8">
+              <div className="absolute -top-5 -right-8 rounded-full bg-espresso px-5 py-2.5 text-xs font-bold text-cream shadow-lg">
                 کیلویی {faToman(3000000)} تومان
               </div>
             </div>
@@ -221,17 +221,24 @@ export default function Beans() {
                 </div>
               </div>
 
-              <a
-                href={`tel:${cafeInfo.tel}`}
-                dir="ltr"
-                className="group mt-6 flex w-full items-center justify-center gap-3 rounded-full bg-caramel py-4 text-base font-extrabold tracking-wider text-espresso transition-all duration-300 hover:bg-cream"
-              >
-                <Phone className="size-4 transition-transform duration-300 group-hover:-rotate-12" />
-                <span className="font-sans font-extrabold tracking-normal">
-                  سفارش تلفنی:
-                </span>
-                {cafeInfo.phoneFa}
-              </a>
+              <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <a
+                  href={`tel:${cafeInfo.tel}`}
+                  className="group flex items-center justify-center gap-3 rounded-full bg-caramel py-4 text-sm font-extrabold text-espresso transition-all duration-300 hover:bg-cream"
+                >
+                  <Phone className="size-4 transition-transform duration-300 group-hover:-rotate-12" />
+                  <span>سفارش تلفنی</span>
+                </a>
+                <a
+                  href={cafeInfo.telegram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center justify-center gap-3 rounded-full bg-[#229ED9] py-4 text-sm font-extrabold text-white transition-all duration-300 hover:bg-[#1a8bc2]"
+                >
+                  <MessageCircle className="size-4 transition-transform duration-300 group-hover:scale-110" />
+                  <span>سفارش از تلگرام</span>
+                </a>
+              </div>
               <p className="mt-4 flex items-center justify-center gap-2 text-center text-[11px] leading-5 text-clay">
                 <MapPin className="size-3.5 shrink-0 text-caramel" />
                 {cafeInfo.address[0]}، {cafeInfo.address[1]}

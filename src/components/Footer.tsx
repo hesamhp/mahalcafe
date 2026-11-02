@@ -24,7 +24,7 @@ const cells = [
   {
     icon: Clock,
     title: "ساعت‌های محل",
-    lines: ["هر روز هفته", "۱۰ صبح تا ۱۲ شب"],
+    lines: ["هر روز هفته", "۹ صبح تا ۱۲ شب"],
   },
   {
     icon: MapPin,
@@ -46,8 +46,8 @@ export default function Footer() {
 
         <Reveal delay={0.05}>
           <h2 className="mt-5 max-w-2xl font-display text-5xl leading-[1.1] text-cream md:text-7xl">
-            یه سر به <span className="text-caramel">محل</span> بزن
-            <span className="sr-only"> — تماس و نشانی کافه محل در ساری</span>
+            بیا <span className="text-caramel">محل</span>، منتظرتیم!
+            <span className="sr-only"> — تماس و آدرس کافه محل در ساری (Cafe Mahal)</span>
           </h2>
         </Reveal>
 
@@ -84,7 +84,7 @@ export default function Footer() {
               </span>
               <span>
                 <span className="block font-display text-2xl text-cream">
-                  اینستاگرام محل
+                  اینستاگرام کافه محل
                 </span>
                 <span
                   dir="ltr"
@@ -95,7 +95,7 @@ export default function Footer() {
               </span>
             </span>
             <span className="hidden text-sm font-bold text-caramel transition-transform duration-500 group-hover:-translate-x-2 sm:block">
-              فالو کن، ببین امروز چی داریم
+              فالو کن، ببین تو کافه محل چه خبره
             </span>
           </a>
         </Reveal>

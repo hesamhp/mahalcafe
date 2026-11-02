@@ -31,18 +31,25 @@ export default function Nav({ ready }: { ready: boolean }) {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-[90rem] items-center justify-between px-5 py-4 md:px-10">
+      <div className="mx-auto flex max-w-[90rem] items-center justify-between px-5 py-3 md:px-10">
         {/* logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="group flex items-baseline gap-3"
-          aria-label="کافه محل"
+          className="group flex items-center gap-3"
+          aria-label="کافه محل — Cafe Mahal"
         >
-          <span className="font-display text-4xl leading-none text-cream transition-colors group-hover:text-caramel">
-            محل
-          </span>
-          <span className="hidden font-latin text-[10px] uppercase tracking-[0.4em] text-clay sm:block">
-            Cafe Mahal
+          <img
+            src="/images/logo.png"
+            alt="لوگوی کافه محل"
+            className="size-11 rounded-full object-contain transition-transform duration-300 group-hover:scale-110 md:size-12"
+          />
+          <span className="flex flex-col">
+            <span className="font-display text-2xl leading-none text-cream transition-colors group-hover:text-caramel md:text-3xl">
+              کافه محل
+            </span>
+            <span className="hidden font-latin text-[9px] uppercase tracking-[0.4em] text-clay sm:block">
+              Cafe Mahal
+            </span>
           </span>
         </button>
 

@@ -189,8 +189,8 @@ function CategoryIndex({
       <div className="mt-4 rounded-2xl border border-caramel/25 bg-caramel/[0.06] p-5">
         <p className="flex items-start gap-3 text-xs leading-6 text-sand">
           <Info className="mt-0.5 size-4 shrink-0 text-caramel" />
-          شیر گیاهی، شات اضافه یا سیروپ دلخواه‌ات رو از باریستا بخواه؛ حالشو
-          داریم.
+          شیر گیاهی، شات اضافه یا سیروپ دلخواهت رو از باریستا بخواه؛ حالشو
+          داریم!
         </p>
       </div>
     </div>
@@ -258,7 +258,7 @@ export default function MenuSection() {
             <Reveal delay={0.05}>
               <h2 className="mt-5 font-display text-5xl leading-none text-cream md:text-8xl">
                 چی میل داری<span className="text-caramel">؟</span>
-                <span className="sr-only"> — منوی آنلاین کافه محل ساری</span>
+                <span className="sr-only"> — منوی آنلاین کافه محل (Cafe Mahal) در ساری</span>
               </h2>
             </Reveal>
           </div>

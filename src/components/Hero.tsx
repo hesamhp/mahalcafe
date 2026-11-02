@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowDown, Armchair, Coffee } from "lucide-react";
+import { ArrowDown, Armchair, Coffee, MapPin } from "lucide-react";
 import { scrollToId } from "../lib/scroll";
 
 const rise = {
@@ -20,7 +20,7 @@ const fade = {
   }),
 };
 
-function RotatingBadge() {
+function LogoBadge() {
   return (
     <div className="relative grid size-32 place-items-center md:size-40">
       <svg viewBox="0 0 100 100" className="absolute inset-0 animate-rotate-slow">
@@ -35,13 +35,15 @@ function RotatingBadge() {
           style={{ fontSize: "7.2px", letterSpacing: "2.6px" }}
         >
           <textPath href="#badge-circle">
-            Mahal Cafe • Specialty Coffee • Fresh Daily •
+            Cafe Mahal • Specialty Coffee • Sari •
           </textPath>
         </text>
       </svg>
-      <span className="grid size-16 place-items-center rounded-full border border-cream/20 bg-espresso/60 font-display text-3xl text-caramel backdrop-blur-sm md:size-20 md:text-4xl">
-        محل
-      </span>
+      <img
+        src="/images/logo.png"
+        alt="لوگوی کافه محل"
+        className="size-16 rounded-full object-contain md:size-20"
+      />
     </div>
   );
 }
@@ -67,7 +69,7 @@ export default function Hero({ ready }: { ready: boolean }) {
           >
             <span className="flex items-center gap-2 rounded-full border border-caramel/30 bg-caramel/10 px-4 py-1.5 text-xs font-semibold text-caramel">
               <Coffee className="size-3.5" />
-              کافهٔ تخصصی — هر روز ۱۰ صبح تا ۱۲ شب
+              هر روز ۹ صبح تا ۱۲ شب — ساری، سالخورده
             </span>
           </motion.div>
 
@@ -77,9 +79,9 @@ export default function Hero({ ready }: { ready: boolean }) {
               custom={0.65}
               initial="hidden"
               animate={state}
-              className="font-display text-[34vw] leading-[0.85] text-cream sm:text-[26vw] lg:text-[15rem] xl:text-[17rem]"
+              className="font-display text-[30vw] leading-[0.85] text-cream sm:text-[22vw] lg:text-[12rem] xl:text-[14rem]"
             >
-              <span className="sr-only">کافه</span>
+              <span className="sr-only">کافه </span>
               محل
               <span className="text-caramel">.</span>
             </motion.h1>
@@ -92,9 +94,9 @@ export default function Hero({ ready }: { ready: boolean }) {
             animate={state}
             className="mt-6 max-w-md text-base leading-8 text-sand md:text-lg md:leading-9"
           >
-            اینجا قرار نیست عجله‌ای رد شوی. کافه محل (Cafe Mahal) جایی است
-            برای مکث در قلب سالخوردهٔ ساری؛ قهوه‌ات داغ، اسنک‌ات تازه و
-            صندلی‌ات همیشه آماده. منو را نگاه کن، بقیه‌اش با ما.
+            سلام! خوش اومدی به کافه محل (Cafe Mahal). اینجا یه جای
+            خودمونیه توی ساری که حال و هوای خونه رو داره، بشین، سفارش بده و
+            حالشو ببر!
           </motion.p>
 
           <motion.div
@@ -108,14 +110,14 @@ export default function Hero({ ready }: { ready: boolean }) {
               onClick={() => scrollToId("menu")}
               className="group flex items-center gap-3 rounded-full bg-cream px-7 py-4 text-sm font-extrabold text-espresso shadow-[0_10px_40px_-10px_rgba(244,234,211,0.35)] transition-all duration-300 hover:bg-caramel hover:shadow-[0_10px_40px_-8px_rgba(210,137,75,0.5)]"
             >
-              منوی آنلاین
+              منوی آنلاین کافه محل
               <ArrowDown className="size-4 transition-transform duration-300 group-hover:translate-y-1" />
             </button>
             <button
               onClick={() => scrollToId("space")}
               className="rounded-full border border-cream/25 px-7 py-4 text-sm font-bold text-cream transition-all duration-300 hover:border-caramel hover:text-caramel"
             >
-              فضای محل
+              یه سر بزن ببین
             </button>
           </motion.div>
 
@@ -127,8 +129,9 @@ export default function Hero({ ready }: { ready: boolean }) {
             className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs font-medium text-clay"
           >
             {[
-              { icon: Coffee, label: "دانهٔ تازه‌رست" },
-              { icon: Armchair, label: "فضای دنج برای نشستن" },
+              { icon: Coffee, label: "قهوهٔ تخصصی تازه‌رست" },
+              { icon: Armchair, label: "فضای خودمونی و دنج" },
+              { icon: MapPin, label: "ساری، سالخورده" },
             ].map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center gap-2">
                 <Icon className="size-4 text-caramel/80" />
@@ -149,7 +152,7 @@ export default function Hero({ ready }: { ready: boolean }) {
           >
             <motion.img
               src="/images/hero.jpg"
-              alt="قهوهٔ تازهٔ کافه محل"
+              alt="قهوهٔ تخصصی تازه — کافه محل ساری (Cafe Mahal)"
               initial={{ scale: 1.25 }}
               animate={ready ? { scale: 1 } : {}}
               transition={{ duration: 1.6, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
@@ -158,7 +161,7 @@ export default function Hero({ ready }: { ready: boolean }) {
             <div className="absolute inset-0 bg-gradient-to-t from-espresso/50 via-transparent to-transparent" />
           </motion.div>
 
-          {/* rotating badge */}
+          {/* rotating badge with logo */}
           <motion.div
             variants={fade}
             custom={1.35}
@@ -166,7 +169,7 @@ export default function Hero({ ready }: { ready: boolean }) {
             animate={state}
             className="absolute -bottom-6 -left-2 z-10 md:-left-8"
           >
-            <RotatingBadge />
+            <LogoBadge />
           </motion.div>
 
           {/* polaroid card */}
@@ -178,14 +181,13 @@ export default function Hero({ ready }: { ready: boolean }) {
           >
             <img
               src="/images/iced.jpg"
-              alt="آیس ماکیاتو — کافه محل ساری"
+              alt="آیس ماکیاتوی کافه محل ساری"
               className="img-warm aspect-square w-full object-cover"
             />
             <p className="mt-2 text-center font-latin text-[9px] uppercase tracking-[0.25em] text-espresso/70">
               Iced Macchiato
             </p>
           </motion.div>
-
         </div>
       </div>
 
@@ -207,7 +209,7 @@ export default function Hero({ ready }: { ready: boolean }) {
             transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
-        <span className="text-xs text-clay">برای دیدن منو اسکرول کن</span>
+        <span className="text-xs text-clay">اسکرول کن و منو رو ببین</span>
       </motion.div>
     </section>
   );

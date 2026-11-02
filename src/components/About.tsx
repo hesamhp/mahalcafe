@@ -7,7 +7,7 @@ import { toFa } from "../lib/data";
 const stats = [
   { icon: Coffee, num: "۱۵+", label: "آیتم قهوه و نوشیدنی" },
   { icon: Croissant, num: "۲", label: "اسنک داغ" },
-  { icon: SunMoon, num: toFa(14), label: "ساعت باز بودن در روز" },
+  { icon: SunMoon, num: toFa(15), label: "ساعت باز بودن در روز" },
 ];
 
 export default function About() {
@@ -33,26 +33,26 @@ export default function About() {
       <div className="relative mx-auto grid max-w-[90rem] grid-cols-1 items-center gap-16 px-5 md:px-10 lg:grid-cols-2">
         {/* text */}
         <div>
-          <Eyebrow>The Space — فضای محل</Eyebrow>
+          <Eyebrow>Cafe Mahal — فضای کافه محل</Eyebrow>
           <Reveal delay={0.05}>
             <h2 className="mt-5 font-display text-5xl leading-[1.1] text-cream md:text-7xl">
-              جایی برای <span className="text-caramel">مکث</span>،
+              جایی برای <span className="text-caramel">خودت</span>،
               <br />
               نه برای عجله
             </h2>
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-7 max-w-lg text-base leading-8 text-sand md:text-lg md:leading-9">
-              کافه محل از یک ایدهٔ ساده شروع شد: شهری مثل ساری که همه‌ش در
-              حال دویدن است، به یک نقطه نیاز دارد که در آن بایستی. ما دانه را خودمان تراز
-              می‌کنیم، شات‌ها را عجولانه نمی‌زنیم و باور داریم بهترین گفتگوها
-              دور یک فنجان قهوهٔ خوب شکل می‌گیرد.
+              ببین، داستان کافه محل خیلی ساده شروع شد: یه شهر شلوغ مثل ساری
+              نیاز داشت به یه جایی که توش نفس بکشی. ما قهوه رو خودمون تراز
+              می‌کنیم، شات‌ها رو با حوصله می‌زنیم و معتقدیم بهترین حرف‌ها پشت
+              یه فنجون قهوهٔ خوب زده می‌شه.
             </p>
           </Reveal>
           <Reveal delay={0.18}>
             <p className="mt-4 max-w-lg text-base leading-8 text-clay md:text-lg md:leading-9">
-              نور کم، موسیقی آرام، بوی قهوهٔ تازه و یک گوشهٔ دنج که شبیه
-              خونه‌اته؛ همین‌قدر ساده.
+              نور ملایم، موسیقی آروم، بوی قهوه تازه و یه گوشه دنج. همین!
+              بیا و خودت ببین.
             </p>
           </Reveal>
 
@@ -82,14 +82,14 @@ export default function About() {
           >
             <img
               src="/images/interior.jpg"
-              alt="فضای داخلی کافه محل"
+              alt="فضای داخلی کافه محل در ساری (Cafe Mahal interior)"
               className="img-warm h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-espresso/60 via-transparent to-transparent" />
             <div className="absolute bottom-6 right-6 left-6 flex items-end justify-between">
-              <p className="font-display text-2xl text-cream">گوشهٔ همیشگی</p>
+              <p className="font-display text-2xl text-cream">گوشهٔ همیشگی تو</p>
               <p className="font-latin text-[10px] uppercase tracking-[0.3em] text-cream/70">
-                Since Day One
+                Cafe Mahal
               </p>
             </div>
           </motion.div>
@@ -104,7 +104,7 @@ export default function About() {
           >
             <img
               src="/images/latte.jpg"
-              alt="لاته آرت — کافه محل (Cafe Mahal)"
+              alt="لاته آرت — قهوهٔ تخصصی کافه محل (Cafe Mahal)"
               className="img-warm aspect-square w-full object-cover"
             />
             <p className="mt-2 text-center font-latin text-[9px] uppercase tracking-[0.25em] text-espresso/70">
