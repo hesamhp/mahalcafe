@@ -19,7 +19,7 @@ export const faToman = (n: number): string => {
 export const cafeInfo = {
   tel: "09908938207",
   phoneFa: "۰۹۹۰ ۸۹۳ ۸۲۰۷",
-  telegram: "https://t.me/mahal_coffeee",
+  telegram: "https://t.me/cwyed",
   address: ["مازندران، ساری — سالخورده", "روبه‌روی سالخورده ۵، کافه محل"],
 };
 
